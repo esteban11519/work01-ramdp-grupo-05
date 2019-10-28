@@ -1,6 +1,5 @@
-## Aquí se debe  documentar todo el proceso del proyecto acorde a cada paquete de trabajo 
-
-### MITCHELL ELIZABETH RODR�GUEZ BARRETO 1032503089
+## GRUPO DE TRABAJO 05
+### MITCHELL ELIZABETH RODRÍGUEZ BARRETO 1032503089
 ### INTEGRE 2
 
 
