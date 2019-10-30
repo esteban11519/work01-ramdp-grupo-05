@@ -11,30 +11,46 @@
 
 3. Los registros a editar son:
 
-2) Habilitar el escalado
+* Reestablecer todos los registros
+
+Pin F2 RESET#: Limpiar todos los registros
+
+0: Reset mode
+
+* Habilitar el escalado
+
 0D -> COM4
 
 Bit[3:0] Reserved
+
 Bit[5:4] 01: 1/2 window
+
 Bit[7:6] Reserved
 
 Página 12
 
-3) Configurar el formato y el tamaño del pixel:
+* Configurar el formato y el tamaño del pixel:
+
 40 -> COM15
 
 Bit[3:0] Reserved
+
 Bit[5:4] 01: RGB 565
+
 Bit[7:6] 11: Output range: [00] to [FF]
 
 Página 18
 
-4) Habilitar el test de barra de colores:
+* Habilitar el test de barra de colores:
+
 42 -> COM17
 
 Bit[2:0] Reserved
+
 Bit[3] 1: Enable
+
 Bit[5:4] Reserved
+
 Bit[7:6] 01: 1/2 same value as COM4
 
 Página 19
