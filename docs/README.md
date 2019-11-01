@@ -11,12 +11,14 @@
 
 Para determinar el tamaño máximo del buffer de memoria que se puede crear con la FPGA, en este caso la Nexys 4 DDr, primero se revisó el datasheet encontrando que el valor de bloque de memoria RAM en la FPGA es de 4.860.000 bits.
 
-Para calcular el número de bits que va a ocupar la memoria se debe tener en cuenta el tamaño de la imagen en pixeles y, además, que cada pixel está compuesto de 2 bytes, es decir, 16 bits. Por lo tanto:
+Para calcular el número de bits que va a ocupar la memoria se debe tener en cuenta el formato con el que se va a trabajar, ya que este define la cantidad de bits que necesita cada pixel para conformar la imagen final. Como se explicará en la siguiente pregunta, el formato escogido es el RGB 565, en donde cada pixel necesita 16 bits (5 para el rojo, 6 para el verde y 5 para el azul), es decir, cada pixel está conformado por 2 bytes. Por lo tanto, el tamaño de la RAM está definido de la siguiente manera:
 
 ![Dimensiones de la memoria RAM](./figs/tamRam.png)
 
+En donde cada fila representa dos bytes (16 casillas), y la altura está definida por la cantidad de pixeles que hay en la imagen. 
+
 * Para una imagen de 640 x 480 pixeles
-El número de posiciones en una memoria está dado por 2^n, en éste caso, debe ser mayor o igual a 640 x 480 = 307.200. Para hallar el valor de _n_ se halla el logaritmo en base 2 de 307.200 y se redondear al entero mayor más cercano. 
+El número de posiciones en una memoria está dado por 2^n, en éste caso, como el npumero de pixeles a usar es de 640 x 480 = 307.200, se busca un exponente tal que 2 elevado a ese exponente sea mayor o igual a 307.000. Para hallar el valor de _n_ se halla el logaritmo en base 2 de 307.200 y, como el exponente debe ser entero, se redondea el resultado al entero mayor más cercano. 
 
 ![Formula1](./figs/formulaUno.png)
 
@@ -29,7 +31,7 @@ Como se puede observar el número de bits sobrepasa el permitido por la tarjeta.
 ![Formula3](./figs/formulaTres.png)
 
 * Para una imagen de 320 x 240 pixeles
-Número de posiciones ≥ 320 x 240 = 76.800
+Luego se decide recortar el tamaño de la imagen para que quepa en la Nexys 4DDR, se escala por un factor de 2, por lo que la imagen es ahora 1/4 del tamaño con respecto al tamaño anterior. Ahora el número de posiciones, o pixeles, es de 320 x 240 = 76.800
 
 ![Formula4](./figs/formulaCuatro.png)
 
