@@ -14,8 +14,6 @@ Para determinar el tamaño máximo del buffer de memoria que se puede crear con 
 Para calcular el número de bits que va a ocupar la memoria se debe tener en cuenta el tamaño de la imagen en pixeles y, además, que cada pixel está compuesto de 2 bytes, es decir, 16 bits. Por lo tanto:
 
 ![Dimensiones de la memoria RAM](./figs/tamRam.png)
-![4cm Dimensiones de la memoria RAM]
-
 
 * Para una imagen de 640 x 480 pixeles
 El número de posiciones en una memoria está dado por 2^n, en éste caso, debe ser mayor o igual a 640 x 480 = 307.200. Para hallar el valor de _n_ se halla el logaritmo en base 2 de 307.200 y se redondear al entero mayor más cercano. 
@@ -42,29 +40,25 @@ Como se puede observar el tamaño en bits de la memoria RAM para una imagen de 3
 ### Pregunta 2:
 ¿Cuál formato y tamaño de imagen de la cámara OV7670 que se ajusta mejor al tamaño de memoria calculado en la pregunta 1?. Para ello revisar la hoja de datos de la cámara OV7670. Revisar el datasheet.
 
-El tamaño de imagen que se tomará (debido al espacio disponible en la FPGA) es de la mitad del tamaño máximo, es decir, 320 x 240.
+* El tamaño de imagen que se tomará (debido al espacio disponible en la FPGA) es de la mitad del tamaño máximo, es decir, 320 x 240.
 
-El formato de salida seleccionado es RGB565, debido a que en el ancho del registro se pueden usar 16 bits que corresponden:
-  * 5 bits para el color rojo
-  * 6 bits para el verde
-  * 5 bits para el azul.
+* El formato de salida seleccionado es RGB565, debido a que en el ancho del registro se pueden usar 16 bits que corresponden:
+   * 5 bits para el color rojo
+   * 6 bits para el verde
+   * 5 bits para el azul.
 
 3. Los registros a editar son:
 
 * Reestablecer todos los registros
 
 Pin F2 RESET#: Limpiar todos los registros
-
 0: Reset mode
 
 * Habilitar el escalado
 
 0D -> COM4
-
 Bit[3:0] Reserved
-
 Bit[5:4] 01: 1/2 window
-
 Bit[7:6] Reserved
 
 Página 12
@@ -72,25 +66,18 @@ Página 12
 * Configurar el formato y el tamaño del pixel:
 
 40 -> COM15
-
 Bit[3:0] Reserved
-
 Bit[5:4] 01: RGB 565
-
 Bit[7:6] 11: Output range: [00] to [FF]
-
 Página 18
 
 * Habilitar el test de barra de colores:
 
 42 -> COM17
-
 Bit[2:0] Reserved
-
 Bit[3] 1: Enable
-
 Bit[5:4] Reserved
-
 Bit[7:6] 01: 1/2 same value as COM4
 
 Página 19
+
