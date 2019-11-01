@@ -11,7 +11,7 @@
 
 Para determinar el tamaño máximo del buffer de memoria que se puede crear con la FPGA, en este caso la Nexys 4 DDr, primero se revisó el datasheet encontrando que el valor de bloque de memoria RAM en la FPGA es de 4.860.000 bits.
 
-Para calcular el número de bits que va a ocupar la memoria se debe tener en cuenta el formato con el que se va a trabajar, ya que este define la cantidad de bits que necesita cada pixel para conformar la imagen final. Como se explicará en la siguiente pregunta, el formato escogido es el RGB 565, en donde cada pixel necesita 16 bits (5 para el rojo, 6 para el verde y 5 para el azul), es decir, cada pixel está conformado por 2 bytes. Por lo tanto, el tamaño de la RAM está definido de la siguiente manera:
+Para calcular el número de bits que va a ocupar la memoria se debe tener en cuenta el formato con el que se va a trabajar, ya que este define la cantidad de bits que necesita cada pixel para conformar la imagen final. Como se explicará en la siguiente pregunta, el formato escogido es el RGB 565, en donde cada pixel necesita 16 bits, es decir, cada pixel está conformado por 2 bytes. Por lo tanto, el tamaño de la RAM está definido de la siguiente manera:
 
 ![Dimensiones de la memoria RAM](./figs/tamRam.png)
 
@@ -42,12 +42,18 @@ Como se puede observar el tamaño en bits de la memoria RAM para una imagen de 3
 ### Pregunta 2:
 ¿Cuál formato y tamaño de imagen de la cámara OV7670 que se ajusta mejor al tamaño de memoria calculado en la pregunta 1?. Para ello revisar la hoja de datos de la cámara OV7670. Revisar el datasheet.
 
-* El tamaño de imagen que se tomará (debido al espacio disponible en la FPGA) es de la mitad del tamaño máximo, es decir, 320 x 240.
+Primero escogemos el formato del pixel a usar, dentro de las opciones disponibles estaba el RGB 555 y el RGB 565. Escogimos este último ya que la cámara bota un bus de datos de 8 bits, por lo que en dos buses podemos llenar un pixel y no se descarta un bit, como si lo tendriamos que hacer con el formato RGB 555. En este formato, el pixel está definido de esta manera
 
-* El formato de salida seleccionado es RGB565, debido a que en el ancho del registro se pueden usar 16 bits que corresponden:
+![imagen1](./figs/RGB565.gif)
+
    * 5 bits para el color rojo
    * 6 bits para el verde
    * 5 bits para el azul.
+
+En donde los primeros 5 bits más significativos del primer bus o Byte (High Byte) conforman el color rojo, y los 3 restantes junto con los 3 más significativos del segundo bus o byte (Low Byte) forman el color verde, dejando así los 5 menos significativos de este segundo bus para el color azul.
+
+* Como se mencionó en la pregunta anterior, el tamaño de la imagen será la mitad del tamaño máximo, es decir, 320 x 240 (debido al espacio disponible en la FPGA).
+
 
 ### Pregunta 3:
 
