@@ -1,1 +1,0 @@
--intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "/home/mitchell/Documentos/Camara/TB_ram_isim_beh.exe" -prj "/home/mitchell/Documentos/Camara/TB_ram_beh.prj" "work.TB_ram" "work.glbl" 

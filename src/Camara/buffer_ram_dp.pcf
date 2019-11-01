@@ -1,9 +1,0 @@
-//! **************************************************************************
-// Written by: Map P.20131013 on Sun Oct 27 15:02:24 2019
-//! **************************************************************************
-
-SCHEMATIC START;
-COMP "regwrite" LOCATE = SITE "J15" LEVEL 1;
-COMP "clk" LOCATE = SITE "E3" LEVEL 1;
-SCHEMATIC END;
-

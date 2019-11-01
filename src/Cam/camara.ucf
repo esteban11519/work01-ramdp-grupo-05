@@ -1,0 +1,2 @@
+## Clock signal
+NET "clk"	LOC = "E3" | IOSTANDARD = "LVCMOS33"; #Bank =35, Pin name = #IO_L12P_T1_MRCC_35, Sch name = clk100mhz
