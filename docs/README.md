@@ -17,28 +17,37 @@ Para calcular el número de bits que va a ocupar la memoria se debe tener en cue
 ![4cm Dimensiones de la memoria RAM]
 
 
-*Para una imagen de 640 x 480 pixeles
+* Para una imagen de 640 x 480 pixeles
 El número de posiciones en una memoria está dado por 2^n, en éste caso, debe ser mayor o igual a 640 x 480 = 307.200. Para hallar el valor de _n_ se halla el logaritmo en base 2 de 307.200 y se redondear al entero mayor más cercano. 
 
-![Logaritmo1](./figs/formulaUno.png)
+![Formula1](./figs/formulaUno.png)
 
 El tamaño en bits de la memoria RAM sería el número de posiciones por el ancho del registro:
 
-![Logaritmo1](./figs/formulaDos.png)
+![Formula2](./figs/formulaDos.png)
 
 Como se puede observar el número de bits sobrepasa el permitido por la tarjeta. 
 
-![Logaritmo1](./figs/formulaTres.png)
+![Formula3](./figs/formulaTres.png)
 
-*Para una imagen de 320 x 240 pixeles
+* Para una imagen de 320 x 240 pixeles
 Número de posiciones ≥ 320 x 240 = 76.800
 
-![Logaritmo1](./figs/formulaCuatro.png)
+![Formula4](./figs/formulaCuatro.png)
 
 Como se puede observar el tamaño en bits de la memoria RAM para una imagen de 320 x 240 pixeles ocuparía el 43,15 % de la memoria disponible en la FPGA, por lo tanto, se usará este tamaño. El tamaño en bytes sería de 262.144.
 
-![Logaritmo1](./figs/formulaCinco.png)
+![Formula5](./figs/formulaCinco.png)
 
+### Pregunta 2:
+¿Cuál formato y tamaño de imagen de la cámara OV7670 que se ajusta mejor al tamaño de memoria calculado en la pregunta 1?. Para ello revisar la hoja de datos de la cámara OV7670. Revisar el datasheet.
+
+El tamaño de imagen que se tomará (debido al espacio disponible en la FPGA) es de la mitad del tamaño máximo, es decir, 320 x 240.
+
+El formato de salida seleccionado es RGB565, debido a que en el ancho del registro se pueden usar 16 bits que corresponden:
+  * 5 bits para el color rojo
+  * 6 bits para el verde
+  * 5 bits para el azul.
 
 3. Los registros a editar son:
 
