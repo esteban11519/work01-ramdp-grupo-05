@@ -30,6 +30,10 @@ Como se puede observar el número de bits sobrepasa el permitido por la tarjeta.
 
 ![Formula3](./figs/formulaTres.png)
 
+Lo anterior también se puede observar en ISE, debido a que al hacer la síntesis muestra un error.
+
+![Error](./figs/excesoCapacidad.jpg)
+
 * Para una imagen de 320 x 240 pixeles.
 
 Se decide recortar el tamaño de la imagen para que quepa en la FPGA, se escala por un factor de 2, por lo que la nueva imagen es ahora 1/4 del tamaño con respecto al tamaño anterior. Ahora el número de posiciones, o pixeles, totales es de 320 x 240 = 76.800. Se hace el mismo procedimiento y se encuentra que el exponente de 2 más cercano que almacena esta cantidad de pixeles es:  
@@ -102,4 +106,20 @@ Bit[7:6] | 01: 1/2 same value as COM4
 
 
 Página 19 del datasheet
+
+### Simulación
+
+Se realizó la simulación del archivo TB_ram para comprobar que la RAM funcione correctamente a los diferentes estímulos de lectura y escritura.
+
+Primero se observa la lectura de los datos precargados en la RAM por medio del archivo imageFILE = "image.men".
+
+![Lectura1](./figs/lecturaUno.jpg)
+
+Luego se puede notar la escritura de 5 datos diferentes.
+
+![Escritura1](./figs/escrituraUno.jpg)
+
+Y finalmente la lectura de los datos añadidos anteriormente.
+
+![Lectura2](./figs/lecturaDos.jpg)
 
