@@ -57,27 +57,28 @@ Pin F2 RESET#: Limpiar todos los registros
 * Habilitar el escalado
 
 0D -> COM4
-Bit[3:0] Reserved
-Bit[5:4] 01: 1/2 window
-Bit[7:6] Reserved
+Bit[3:0] | Reserved
+Bit[5:4]  | 01: 1/2 window
+Bit[7:6] | Reserved
 
-Página 12
+Página 12 del datasheet
 
 * Configurar el formato y el tamaño del pixel:
 
 40 -> COM15
-Bit[3:0] Reserved
-Bit[5:4] 01: RGB 565
-Bit[7:6] 11: Output range: [00] to [FF]
-Página 18
+Bit[3:0] | Reserved
+Bit[5:4] | 01: RGB 565
+Bit[7:6] | 11: Output range: [00] to [FF]
+
+Página 18 del datasheet
 
 * Habilitar el test de barra de colores:
 
 42 -> COM17
-Bit[2:0] Reserved
-Bit[3] 1: Enable
-Bit[5:4] Reserved
-Bit[7:6] 01: 1/2 same value as COM4
+Bit[2:0] | Reserved
+Bit[3] 1: | Enable
+Bit[5:4] | Reserved
+Bit[7:6] | 01: 1/2 same value as COM4
 
-Página 19
 
+Página 19 del datasheet
