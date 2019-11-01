@@ -143,7 +143,7 @@ Página 22 del datasheet
 
 Se realizó la simulación del archivo TB_ram para comprobar que la RAM funcione correctamente a los diferentes estímulos de lectura y escritura.
 
-Primero se observa la lectura de los datos precargados en la RAM por medio del archivo imageFILE = "image.men".
+Primero se observa la lectura de algunos de los datos precargados en la RAM por medio del archivo imageFILE = "image.men".
 
 ![Lectura1](./figs/lecturaUno.jpg)
 
