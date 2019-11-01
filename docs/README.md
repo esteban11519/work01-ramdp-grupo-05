@@ -6,15 +6,18 @@
 #### Mitchell Elizabeth Rodríguez Barreto	1032503089
 
 
-###Pregunta 1:
+### Pregunta 1:
 ¿Definir cuál es el tamaño máximo de buffer de memoria que puede crear?, se recomienda leer las especificaciones de la FPGA que está usando cada grupo. La respuesta se debe dar en bytes.
 
 Para determinar el tamaño máximo del buffer de memoria que se puede crear con la FPGA, en este caso la Nexys 4 DDr, primero se revisó el datasheet encontrando que el valor de bloque de memoria RAM en la FPGA es de 4.860.000 bits.
 
 Para calcular el número de bits que va a ocupar la memoria se debe tener en cuenta el tamaño de la imagen en pixeles y, además, que cada pixel está compuesto de 2 bytes, es decir, 16 bits. Por lo tanto:
 
+![Dimensiones de la memoria RAM](./figs/tamRam.png)
+
 *Para una imagen de 640 x 480 pixeles
-El número de posiciones en una memoria está dado por 2^n, en éste caso, debe ser mayor o igual a 640 x 480 = 307.200. Para hallar el valor de n se halla el logaritmo en base 2 de 307.200 y se redondear al entero mayor más cercano. 
+El número de posiciones en una memoria está dado por 2^n, en éste caso, debe ser mayor o igual a 640 x 480 = 307.200. Para hallar el valor de _n_ se halla el logaritmo en base 2 de 307.200 y se redondear al entero mayor más cercano. 
+
 
 log_2(307.200) = 18,23 ≈ 19
 n = 19
