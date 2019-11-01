@@ -69,15 +69,30 @@ En donde los primeros 5 bits más significativos del primer bus o Byte (High Byt
 Pin F2 RESET#: Limpiar todos los registros
 0: Reset mode
 
+12 -> COM7
+
+Bits | Configuración
+------------ | -------------
+Bit[7] | 1: Reestablecer todos los registros a los valores predeterminados. SCCB Reestablecer registro
+Bit[6] | Reservado
+Bit[5] | Formato de salida – Selección CIF
+Bit[4] | Formato de salida – Selección QVGA
+Bit[3] | Formato de salida – Selección QCIF
+Bit[2] | Formato de salida – Selección RGB
+Bit[1] | 1: Habilitar barra de color 
+Bit[0] | Formato de salida – Raw RGB
+
+Página 13 del datasheet
+
 * Habilitar el escalado
 
 0D -> COM4
 
 Bits | Configuración
 ------------ | -------------
-Bit[3:0] | Reserved
-Bit[5:4]  | 01: 1/2 window
-Bit[7:6] | Reserved
+Bit[7:6] | Reservado
+Bit[5:4]  | 01: 1/2 ventana
+Bit[3:0] | Reservado
 
 Página 12 del datasheet
 
@@ -87,9 +102,9 @@ Página 12 del datasheet
 
 Bits | Configuración
 ------------ | -------------
-Bit[3:0] | Reserved
+Bit[7:6] | 11: Rango de salida: [00] to [FF] 
 Bit[5:4] | 01: RGB 565
-Bit[7:6] | 11: Output range: [00] to [FF]
+Bit[3:0] | Reservado
 
 Página 18 del datasheet
 
@@ -99,13 +114,30 @@ Página 18 del datasheet
 
 Bits | Configuración
 ------------ | -------------
-Bit[2:0] | Reserved
-Bit[3] 1: | Enable
-Bit[5:4] | Reserved
-Bit[7:6] | 01: 1/2 same value as COM4
-
+Bit[7:6] | 01: 1/2 mismo valor de COM4
+Bit[5:4] | Reservado
+Bit[3] 1: | Habilitar
+Bit[2:0] | Reservado
 
 Página 19 del datasheet
+
+70 -> SCALING_XSC
+
+Bits | Configuración
+------------ | -------------
+Bit[7] | 10: Patrón de prueba[0] (SCALING_XSC, SCALING_YSC)
+Bit[6:0] | Factor de escala horizontal
+
+Página 21 del datasheet
+
+71 -> SCALING_YSC
+
+Bits | Configuración
+------------ | -------------
+Bit[7] | 10: Patrón de prueba[1] (SCALING_XSC, SCALING_YSC)
+Bit[6:0] | Factor de escala vertical
+
+Página 22 del datasheet
 
 ### Simulación
 
@@ -122,4 +154,5 @@ Luego se puede notar la escritura de 5 datos diferentes.
 Y finalmente la lectura de los datos añadidos anteriormente.
 
 ![Lectura2](./figs/lecturaDos.jpg)
+
 
