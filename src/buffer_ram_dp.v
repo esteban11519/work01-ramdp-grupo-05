@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 module buffer_ram_dp#( 
 	parameter AW = 17, 				// Cantidad de bits  de la dirección 
-	parameter DW = 16, 				// Cantidad de Bits de los datos 
+	parameter DW = 16, 				// Cantidad de Bits por pixel 
 	parameter   imageFILE= "ramdp/image.men")	// Archivo para precargar
 	(  
 	input  clk, 			// Reloj
@@ -34,9 +34,9 @@ module buffer_ram_dp#(
 	);
 
 //-- Calcular el numero de posiciones totales de memoria 
-localparam NPOS = 2 ** AW; //-- Memoria
+localparam NPOS = 2 ** AW; //-- Memoria / Cantidad de pixeles
 
- reg [DW-1: 0] ram [0: NPOS-1]; 	// RAM
+	reg [DW-1: 0] ram [0: NPOS-1]; 	// RAM. Se llena de arriba a abajo, izq a derecha. 
 
 //-- Lectura/escritura  de la memoria port 1 
 always @(posedge clk) begin 		// Flancos de subida en el reloj
